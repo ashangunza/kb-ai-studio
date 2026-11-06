@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>KB AI Studio</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+
+margin:0;
+
+background:#100b22;
+
+color:white;
+
+font-family:Arial,sans-serif;
+
+}
+
+header{
+
+background:#21123e;
+
+padding:25px;
+
+text-align:center;
+
+}
+
+h1{color:#d4a5ff}
+
+main{
+
+max-width:550px;
+
+margin:auto;
+
+padding:24px;
+
+}
+
+.card{
+
+background:#24173e;
+
+padding:22px;
+
+border-radius:18px;
+
+}
+
+textarea,select,button{
+
+width:100%;
+
+padding:14px;
+
+margin-top:12px;
+
+border-radius:10px;
+
+font-size:16px;
+
+}
+
+textarea,select{
+
+background:white;
+
+color:#222;
+
+border:0;
+
+}
+
+button{
+
+background:#a855f7;
+
+color:white;
+
+border:0;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+#result{
+
+white-space:pre-wrap;
+
+margin-top:20px;
+
+line-height:1.5;
+
+}
+
+small{color:#c5b9d7}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🎬 KB AI Studio</h1>
+
+<p>Create Amazing AI Stories & Videos</p>
+
+</header>
+
+<main>
+
+<div class="card">
+
+<h2>✨ AI Video Creator</h2>
+
+<p>Describe your video idea:</p>
+
+<textarea id="idea" rows="5"
+
+placeholder="Example: Asha becomes a successful businesswoman..."></textarea>
+
+<p>Choose your video style:</p>
+
+<select id="style">
+
+<option>Cinematic Movie</option>
+
+<option>African Story</option>
+
+<option>Comedy</option>
+
+<option>Music Video</option>
+
+<option>Business Advertisement</option>
+
+</select>
+
+<button onclick="createPrompt()">
+
+✨ Create Video Prompt
+
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<p><small>Free demo. AI video generation coming soon.</small></p>
+
+</main>
+
+<script>
+
+function createPrompt(){
+
+const idea=document.getElementById('idea').value.trim();
+
+const style=document.getElementById('style').value;
+
+const result=document.getElementById('result');
+
+if(!idea){
+
+result.textContent='Please describe your video first.';
+
+return;
+
+}
+
+result.textContent=
+
+'🎬 Your Video Prompt:\n\n'+
+
+'Create a high-quality '+style+
+
+' video about: '+idea+
+
+'\n\nUse cinematic lighting, detailed characters, natural movement, and beautiful visuals.';
